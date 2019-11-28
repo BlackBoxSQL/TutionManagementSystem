@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from . forms import StudentregistrationForm
+from . forms import StudentregistrationForm, PaymentForm
 from . models import Studentregistration
 # Create your views here.
 
@@ -27,3 +27,16 @@ def allstudents(request):
     }
 
     return render(request, 'addstudentapp/allstudents.html', context)
+
+
+def payment(request):
+    if request.method == "POST":
+        addpayment = PaymentForm(request.POST)
+        if addpayment.is_valid():
+            post = addpayment.save(commit=False)
+            post.save()
+            return redirect('homepage')
+    else:
+        addpayment = PaymentForm()
+
+    return render(request, 'addstudentapp/payment.html', {'addpayment': addpayment})

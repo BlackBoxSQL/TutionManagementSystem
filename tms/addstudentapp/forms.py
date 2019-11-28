@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Studentregistration
+from .models import Studentregistration, Payment
 
 
 class StudentregistrationForm(forms.ModelForm):
@@ -9,3 +9,9 @@ class StudentregistrationForm(forms.ModelForm):
         model = Studentregistration
         fields = ('student_name', 'student_phone',
                   'guardians_phone', 'college', 'year', 'address',)
+
+
+class PaymentForm(forms.ModelForm):
+    class Meta:
+        model = Payment
+        fields = ('student_name', 'month', 'paid',)

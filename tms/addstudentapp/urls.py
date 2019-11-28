@@ -4,4 +4,5 @@ urlpatterns = [
     path('', views.homepage, name="homepage"),
     path('addstudent/', views.addstudent, name="addstudent"),
     path('allstudents/', views.allstudents, name="allstudents"),
+    path('payment/', views.payment, name="payment"),
 ]

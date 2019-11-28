@@ -17,3 +17,27 @@ class Studentregistration(models.Model):
 
     def __str__(self):
         return self.student_name
+
+
+class Payment(models.Model):
+    Month_CHOICES = [
+        ('jan', 'January'),
+        ('feb', 'February'),
+        ('mar', 'March'),
+        ('apr', 'April'),
+        ('may', 'May'),
+        ('jun', 'Jun'),
+        ('jul', 'July'),
+        ('aug', 'August'),
+        ('sep', 'September'),
+        ('oct', 'October'),
+        ('nov', 'November'),
+        ('dec', 'December'),
+    ]
+    student_name = models.ForeignKey(
+        Studentregistration, on_delete=models.CASCADE)
+    month = models.CharField(max_length=4, choices=Month_CHOICES)
+    paid = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.month
