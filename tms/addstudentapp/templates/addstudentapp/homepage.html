@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}
+Tution Management System
+{% endblock title %}
+{% block body %}
+  <h2>Welcome to Tution Management System</h2>
+  <a href="{% url 'addstudent' %}">Add Student</a>
+  <a href="{% url 'allstudents' %}">See all Students</a>
+{% endblock body %}
