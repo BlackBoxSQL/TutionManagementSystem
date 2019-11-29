@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from . forms import StudentregistrationForm, PaymentForm
+from . forms import StudentregistrationForm, PaymentForm, AttendenceForm
 from . models import Studentregistration
 # Create your views here.
 
@@ -14,7 +14,7 @@ def addstudent(request):
         if addstudent.is_valid():
             post = addstudent.save(commit=False)
             post.save()
-            return redirect('homepage')
+            return redirect('addstudent')
     else:
         addstudent = StudentregistrationForm()
 
@@ -35,8 +35,21 @@ def payment(request):
         if addpayment.is_valid():
             post = addpayment.save(commit=False)
             post.save()
-            return redirect('homepage')
+            return redirect('payment')
     else:
         addpayment = PaymentForm()
 
     return render(request, 'addstudentapp/payment.html', {'addpayment': addpayment})
+
+
+def takeattendence(request):
+    if request.method == "POST":
+        attendence = AttendenceForm(request.POST)
+        if attendence.is_valid():
+            post = attendence.save(commit=False)
+            post.save()
+            return redirect('takeattendence')
+    else:
+        attendence = AttendenceForm()
+
+    return render(request, 'addstudentapp/attendence.html', {'attendence': attendence})

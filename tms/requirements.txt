@@ -2,12 +2,15 @@ astroid==2.3.3
 autopep8==1.4.4
 colorama==0.4.1
 Django==2.2.7
+Faker==2.0.4
 isort==4.3.21
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
 pycodestyle==2.5.0
 pylint==2.4.4
+python-dateutil==2.8.1
 pytz==2019.3
 six==1.13.0
 sqlparse==0.3.0
+text-unidecode==1.3
 wrapt==1.11.2

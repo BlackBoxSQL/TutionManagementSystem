@@ -1,5 +1,5 @@
 from django.db import models
-
+import datetime
 # Create your models here.
 
 
@@ -41,3 +41,9 @@ class Payment(models.Model):
 
     def __str__(self):
         return self.month
+
+
+class Attendence(models.Model):
+    student = models.ForeignKey(Studentregistration, on_delete=models.CASCADE)
+    date = models.DateField(default=datetime.date.today)
+    present = models.BooleanField(default=False)

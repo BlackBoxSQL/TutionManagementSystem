@@ -5,4 +5,5 @@ urlpatterns = [
     path('addstudent/', views.addstudent, name="addstudent"),
     path('allstudents/', views.allstudents, name="allstudents"),
     path('payment/', views.payment, name="payment"),
+    path('attendence/', views.takeattendence, name="takeattendence"),
 ]
