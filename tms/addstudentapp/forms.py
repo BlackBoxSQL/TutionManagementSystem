@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Studentregistration, Payment, Attendence
+from .models import Studentregistration, Payment, Attendence, Result, Sheet
 
 
 class StudentregistrationForm(forms.ModelForm):
@@ -21,3 +21,11 @@ class AttendenceForm(forms.ModelForm):
     class Meta:
         model = Attendence
         fields = ('student', 'date', 'present',)
+
+
+class ResultForm(forms.ModelForm):
+    pass
+
+
+class SheetForm(forms.ModelForm):
+    pass

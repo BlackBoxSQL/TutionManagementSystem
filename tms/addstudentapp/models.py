@@ -16,7 +16,7 @@ class Studentregistration(models.Model):
     address = models.TextField(max_length=100)
 
     def __str__(self):
-        return self.student_name
+        return self.id, self.student_name
 
 
 class Payment(models.Model):
@@ -40,10 +40,27 @@ class Payment(models.Model):
     paid = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.month
+        return self.student_name
 
 
 class Attendence(models.Model):
     student = models.ForeignKey(Studentregistration, on_delete=models.CASCADE)
     date = models.DateField(default=datetime.date.today)
     present = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.date
+
+
+class Result(models.Model):
+    student = models.ForeignKey(Studentregistration, on_delete=models.CASCADE)
+    batch = models.CharField(max_length=20)
+    exam = models.CharField(max_length=20)
+    marks = models.CharField(max_length=3)
+
+    def __str__(self):
+        return self.batch
+
+
+class Sheet(models.Model):
+    pass

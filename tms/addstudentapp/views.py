@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from . forms import StudentregistrationForm, PaymentForm, AttendenceForm
-from . models import Studentregistration
+from . forms import StudentregistrationForm, PaymentForm, AttendenceForm, ResultForm, SheetForm
+from . models import Studentregistration, Result, Sheet
 # Create your views here.
 
 
@@ -53,3 +53,11 @@ def takeattendence(request):
         attendence = AttendenceForm()
 
     return render(request, 'addstudentapp/attendence.html', {'attendence': attendence})
+
+
+def result(request):
+    pass
+
+
+def sheet(request):
+    pass
